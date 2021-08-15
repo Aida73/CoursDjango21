@@ -30,7 +30,7 @@ GOOGLE_RECAPTCHA_SECRET_KEY = '6LdRSRYUAAAAAOnk5yomm1dI9BmQkJWTg_wIlMJ_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['site-officiel-EPT.herokuapp.com']
+ALLOWED_HOSTS = ['site-officiel-EPT.herokuapp.com','127.0.0.1']
 
 
 # Application definition
