@@ -1,0 +1,88 @@
+{% load static %}
+{% load i18n %}
+<style>
+a{
+  color:white;
+}
+
+</style>
+
+<!-- Begin Footer -->
+<footer class="page-footer font-small  pt-4" style="background-color:rgb(216, 127, 39)">
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-4 mt-md-0 mt-3" style="border-right: 5px solid white;">
+
+        <!-- Content -->
+        <div class="bg-light container-fluid" style="width:100px;height:100px ;border-radius:5px 5px 5px 5px;" >
+          <img class="img-fluid mt-4" src="{% static 'images/ept_logo.svg' %}" alt="image_ept" >
+          
+        </div>
+        <small class="text-white ml-5">Copyright 2021 © 2021 | Ecole Polytechnique de Thies</small>
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-4 mb-md-0 mb-3 text-white container-fluid" style="border-right: 5px solid white;">
+
+        <!-- Links -->
+        <h5 class="text-uppercase ml-5">{% trans "Contacts" %}</h5>
+  
+          <ul class="list-unstyled ml-5">
+            <li>
+              Mail: <a href="#!">ept@ept.sn</a>
+            </li>
+            <li>
+              {% trans "Postale" %}: <a href="#!">BP A10, Thies, Sénégal</a>
+            </li>
+            <li>
+              {% trans "Téléphone" %}: <a href="#!">+221 33 951 15 48</a>
+            </li>
+            <li>
+              {% trans "Fax" %}<a href="#!">33 951 14 76</a>
+            </li>
+          </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3 text-white">
+
+        <!-- Links -->
+        <h5 class="text-uppercase ml-5">Social</h5>
+  
+       
+              <div class="mt-4 ">
+                
+                <a href="https://www.instagram.com/ept_e/?hl=fr"><img src="{% static 'images/insta.png' %}" class="img-fluid ml-2" width="30px" height="30px" alt="inta" style="border:1px solid white; background-color:white; border-radius:60px 60px 60px 60px;"></a>
+                
+           
+                <a href="https://www.facebook.com/EPT-lofficiel-401641523533850/"><img src="{% static 'images/facebook.png' %}" class="img-fluid ml-2" width="30px" height="30px" alt="inta" style="border:1px solid white; background-color:white;border-radius:60px 60px 60px 60px;"></a>
+              
+            
+                <a href="#!"><a href="https://www.youtube.com/results?search_query=ept"><img src="{% static 'images/youtube.png' %}"  class="ml-2" width="30px" height="30px" alt="inta" style="border:1px solid white; background-color:white; border-radius:60px 60px 60px 60px;"></a></a>
+            
+           
+                <a href="#!"><a href="https://twitter.com/ept_officiel?s=11"><img src="{% static 'images/twitter.png' %}"  width="30px" class="ml-2" height="30px" alt="inta" style="border:1px solid white; background-color:white; border-radius:60px 60px 60px 60px;"></a></a>
+              </div>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+</footer>
+<!-- End Footer -->

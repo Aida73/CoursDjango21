@@ -1,0 +1,135 @@
+{% extends 'departement/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+ <section style="height:340px;background: url(/static/images/git.jpg); background-size: cover; background-position: center bottom" class="hero">
+    <div class="container">
+      <div class="row"  >
+        <div class="col-md-7 ml-5 py-4" style="margin-top:80px">
+          
+        </div>
+      </div>
+    </div>
+  </section>
+<div class="container mt-2">
+<span><span style="text-decoration:underline">{% trans "Chef du Département " %}</span>: Dr. Abdoulaye GUISSE</span></br>
+
+<span><span style="text-decoration:underline">{% trans "Email" %} : aguisse@ept.sn</span></span><br>
+
+<span><span style="text-decoration:underline">{% trans "Téléphone Secrétariat" %} </span>: 00221 33 951 16 32</span></br>
+
+</div>
+<section id="tabs" class="project-tab">
+            <div class="row d-flex justify-content-center">
+            <h4 class=" h4 text-align-center">{% trans "Liste des élèves du département GIT" %}</h4>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav>
+                            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">DIC1</a>
+                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">DIC2</a>
+                                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">DIC3</a>
+                            </div>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <div class="table-responsive">
+                                <table class="table" cellspacing="0" >
+                                    <thead>
+                                        <tr>
+                                            <th>{% trans "Numero Carte Scolaire" %}</th>
+                                            <th>{% trans "Prénom" %}</th>
+                                            <th>{% trans "Nom" %}</th>
+                                            <th>{% trans "Email" %}</th>
+                                            <th>{% trans "Date de naissance" %}</th>
+                                            <th>{% trans "Lieu de naissance" %}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for etudiant_dic1 in etudiants_dic1 %}
+                                        <tr>
+                                            <td>{{etudiant_dic1.etudiant.numero_carte }}</td>
+                                            <td>{{etudiant_dic1.etudiant.user.first_name}}</td>
+                                            <td>{{etudiant_dic1.etudiant.user.last_name}}</td>
+                                            <td>{{etudiant_dic1.etudiant.user.email}}</td>
+                                            <td>{{etudiant_dic1.etudiant.date_Nce|date:'d/m/Y'}}</td>
+                                            <td>{{etudiant_dic1.etudiant.lieu_naissance}}</td>
+ 
+                                        </tr>
+                                        {% empty %}
+                                            <h4>{% trans "La liste est vide" %}<h4>
+                                        {% endfor %}
+                                        
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                <div class="table-responsive">
+                                <table class="table" cellspacing="0">
+                                    <thead>
+                                       <tr>
+                                            <th>{% trans "Numero Carte Scolaire" %}</th>
+                                            <th>{% trans "Prénom" %}</th>
+                                            <th>{% trans "Nom" %}</th>
+                                            <th>{% trans "Email" %}</th>
+                                            <th>{% trans "Date de naissance" %}</th>
+                                            <th>{% trans "Lieu de naissance" %}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for etudiant_dic2 in etudiants_dic2 %}
+                                        <tr>
+                                            <td>{{etudiant_dic2.etudiant.numero_carte }}</td>
+                                            <td>{{etudiant_dic2.etudiant.user.first_name}}</td>
+                                            <td>{{etudiant_dic2.etudiant.user.last_name}}</td>
+                                            <td>{{etudiant_dic2.etudiant.user.email}}</td>
+                                            <td>{{etudiant_dic2.etudiant.date_Nce|date:'d/m/Y'}}</td>
+                                            <td>{{etudiant_dic2.etudiant.lieu_naissance}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                                <div class="table-responsive">
+                                <table class="table" cellspacing="0">
+                                    <thead>
+                                       <tr>
+                                            <th>{% trans "Numero Carte Scolaire" %}</th>
+                                            <th>{% trans "Prénom" %}</th>
+                                            <th>{% trans "Nom" %}</th>
+                                            <th>{% trans "Email" %}</th>
+                                            <th>{% trans "Date de naissance" %}</th>
+                                            <th>{% trans "Lieu de naissance" %}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for etudiant_dic3 in etudiants_dic3%}
+                                        <tr>
+                                            <td>{{etudiant_dic3.etudiant.numero_carte }}</td>
+                                            <td>{{etudiant_dic3.etudiant.user.first_name}}</td>
+                                            <td>{{etudiant_dic3.etudiant.user.last_name}}</td>
+                                            <td>{{etudiant_dic3.etudiant.user.email}}</td>
+                                            <td>{{etudiant_dic3.etudiant.date_Nce|date:'d/m/Y'}}</td>
+                                            <td>{{etudiant_dic3.etudiant.lieu_naissance}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+</ul>
+
+{% endblock content %}
+

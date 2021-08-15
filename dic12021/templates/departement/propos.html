@@ -1,0 +1,34 @@
+{% extends 'departement/base.html' %}
+{% block content %}
+
+{% load i18n %}
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h4 class="py-4">A propos</h4>
+            <p>
+
+            {% blocktrans %}L’EPT est une école d’ingénieur forte de 43 ans d’expertise dans la formation d’ingénieurs de conception de Génie Civil, de Génie Électromécanique, et en Génie Informatique et Télécommunications.{% endblocktrans %} 
+
+            </p>
+
+            <p>
+
+            {% blocktrans %} L’EPT est résolument tournée vers la diversification des filières mais aussi des niveaux de formation. Cela entraine inéluctablement une évolution des effectifs des élèves-ingénieurs (figure ci-dessous).
+
+
+
+            On note une évolution des effectifs avec une augmentation de 35% entre 2009 et 2014. Par contre, il faudra noter que cette évolution est freinée par notre capacité d’accueil que ce soit au niveau social ou au niveau pédagogique. Cette capacité limitée nous empêche pour le moment d’ouvrir deux nouveaux départements dont les projets pédagogiques sont finalisés, le département de Génie industriel et le département de Géomatique et sciences topographiques.
+
+            L’effectif total des élèves durant l’année scolaire 2013-2014 était de 329, ainsi répartis comme suit (tableau 7) :
+
+            Tableau 8 : Répartition de l’effectif des élèves ingénieurs pour l’année 2013-2014 {% endblocktrans %} 
+
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

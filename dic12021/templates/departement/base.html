@@ -1,0 +1,308 @@
+<!doctype html>
+{% load static %}
+
+{% load i18n %}
+<html lang="en">
+  <head>
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+   
+    <!-- Required meta tags -->
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{%static 'public/css/bootstrap.min.css' %}" >
+  <link href="{% static 'fontawesome_free/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'fontawesome_free/css/brands.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'fontawesome_free/css/solid.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'style.css' %}" rel="stylesheet" type="text/css">
+
+  {%block extrahead %}
+
+  {% endblock %}
+
+  <title> {% block title %} Django Project! {% endblock title %}</title>
+  </head>
+  <style>
+  
+    .dept a{
+      padding: 4px;
+      border-bottom: 1px solid gray;
+    }
+    .dept a:hover{
+      background-color:rgb(216, 127, 39);
+    }
+    .nav-link{
+      color: black;
+    }
+    
+
+    .modal-body input,.modal-body select{
+      border:2px solid rgb(216, 127, 39);
+    }
+    .modal-body label{
+      font-weight: bolder;
+    }
+    .test .nav-link:hover{
+      text-decoration: none;
+      color: rgb(216, 127, 39);
+    }
+  </style>
+  <body>
+
+    <nav class="navbar navbar-expand-lg ">
+      <a class="navbar-brand" href="/">
+        <img height="45" width="45" src="{% static 'images/ept_logo.svg' %}" alt="image_ept" >
+        </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav navbar-right test">
+          <li class="nav-item">
+            <a class="nav-link accueil" href="{% url 'home' %}">{% trans "Accueil" %}<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" >
+              {% trans "Département" %} 
+            </a>
+            <div class="dropdown-menu dept" aria-labelledby="navbarDropdown" style="background-color: rgb(216, 127, 39);">
+              <a class="dropdown-item text-white " href="{% url 'genie_aero' %}">{% trans "Genie Aeronautique" %}</a>
+              <a class="dropdown-item text-white" href="{% url 'genie_gc' %}">{% trans "Genie civil" %}</a>
+              <a class="dropdown-item text-white" href="{% url 'genie_git' %}">{% trans "Genie informatique et telecommunications "%}</a>
+              <a class="dropdown-item text-white" href="{% url 'genie_gem' %}">{% trans "Genie Electomecanique" %}</a>
+            </div>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/admin">{% trans "Administration" %}<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'ourContact' %}">{% trans "Contacts" %}</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle border-left border-right" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-globe"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+              {% get_current_language as LANGUAGE_CODE %}
+              {% get_available_languages as LANGUAGES %}
+              {% get_language_info_list for LANGUAGES as languages%}
+    
+              {% for lang in languages %}
+                <li>
+                  <a class="dropdown-item" href="/{{ lang.code }}/">
+                    {{ lang.name_local }}
+                  </a>
+                </li>
+              {% endfor %}
+          </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'propos' %}">{% trans "A propos" %}</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a href="{% url 'mylogout' %}" class="btn  nav-link text-white" style="background-color: rgb(216, 127, 39);">{% trans "Déconnexion" %}</a>
+          </li>
+          {% else %}
+          
+          <li class="nav-item">
+            <a href="#exampleModal2" class="btn btn-warning btn-sm nav-link text-white" data-toggle="modal"  style="background-color: rgb(216, 127, 39);" data-target="#exampleModal2"  >{% trans "connexion" %}</a>
+          </li>
+
+        <!-- Modal connexion -->
+          <div class="modal fade"  id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true" >
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel2" style="font-weight:bolder">{% trans "Connexion" %}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body justify-content-center p-5">      
+              
+                {%if messages%}
+                  {% for message in messages %}
+                    <div class="alert alert-danger">{{message}}</div>
+                  {% endfor %}
+                {% endif %}       
+                <form method="POST" action="{% url 'signIN' %}">      
+                  {% csrf_token %}  
+                        <input type="hidden" name="nextt" value="{{request.GET.next}}"/>
+                        <input class="form-control" placeholder='{% trans "Nom Utilisateur"  %}' name="username">
+                        <input type = "password" class="form-control mt-3" placeholder='{% trans "mot de passe" %}' name="password">
+                        <div class="ml-4 mt-3">
+                          <input type="checkbox" class="form-check-input " id="exampleCheck2">
+                          <span class="form-check-label" for="exampleCheck2">{% trans "Se souvenir de moi" %}</span> 
+                        </div>
+                        <div class="mt-3">
+                        <div class="row justify-content-center">
+                          <button type="submit" class="btn btn-warning  text-align-center text-white">{% trans "Se connecter" %}</button>
+                        </div>
+    
+                        <div class="row justify-content-center mb-5"> 
+                          <a href="/accounts/password_reset" class="text-primary justify-content-center">{% trans "Mot de passe oublié?" %}</a>
+                        </div>
+                      </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          </div>
+          <li class="nav-item">
+            <a href="#" class="btn btn-outline-warning btn-sm nav-link text-dark  ml-3" data-toggle="modal" data-target="#modalInscription">{% trans "Inscription" %}</a>
+          </li>
+
+        <!-- Modal Inscription--> 
+        <div class="modal fade"  id="modalInscription" tabindex="-1" aria-labelledby="modalInscription" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="font-weight:bolder">{% translate "Créer un compte utilisateur" %}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form method="POST" action="{% url 'myregister' %}" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <div class="form-row">
+                    <div class="col-5">
+                      <div class="form-group">
+                        <label >{% trans "Prénom et Nom" %}</label>
+                        <input class="form-control mb-2" type="text" placeholder='{% trans "Prénom" %}' name="prenom" required/>
+                        <input class="form-control" type="text" placeholder='{% trans "Nom" %}' name="nom" required/>
+                      </div>
+                      <div class="form-group">
+                        <label >{% trans "Adresse mail" %}</label>
+                        <input class="form-control" type="email" placeholder=' {% trans "etudiant@ept.sn" %}' name="email" required/>
+                      </div>
+                      <div class="form-group">
+                        <label >{% trans "Numéro carte scolaire et année scolaire" %}</label>
+                        <input class="form-control mb-2" type="text" placeholder='{% trans  "numéro de carte scolaire" %}' name="carte" required/>
+                        <input class="form-control" type="number" min="1973" placeholder='{% trans "année scolaire" %}' name="annee_scolaire" required/>
+                      </div>
+                      <div class="form-group">
+                        <label>{% trans "Département" %}</label>
+                      
+                        <select class="form-control" name="departement">
+                          {% for dept in  depts%}
+                            <option value='{{dept.id}}'>{{dept}}</option>
+                          {% endfor %}
+                          
+                        </select>
+                      </div>
+                          
+                      
+                    </div>
+                    <div class="col-2 d-flex align-items-end">
+                      <div class="form-group">
+                        <label>{% trans "Niveau" %}</label>
+                        <select class="form-control" name="niveau">
+                        {% for niveau  in niveaux %}
+                          <option value='{{niveau.id}}'>{{niveau.niveau}}</option>
+                        {% endfor %}
+                        </select>
+                      </div>
+                    </div>
+                    
+                    
+                      <div class="col-5">
+                        <div class="form-group">
+                          <label >{% trans "Nom d'utilisateur et mot de passe" %}</label>
+                          <input class="form-control mb-2" type="text" placeholder="username" name="username" required/>
+                          <input class="form-control" type="password" placeholder="mot de passe" name="password" required/>
+                        </div>
+      
+                      <div class="form-group ">
+                      <label class="mt-3">{% trans "Date et lieu de naissance" %}</label>
+      
+                      <div class="form-row ">
+                        <div class="col">
+                          <input class="form-control" type="number" min="1" max="12" placeholder='{% trans "Mois" %}' name="mois" required/>
+                        </div>
+                        <div class="col">
+                          <input class="form-control" type="number" min="1" max="31" placeholder='{% trans "Jour" %}' name="jour" required/>
+                        </div>
+                        <div class="col">
+                          <input class="form-control " type="number" min="1" max="2021" placeholder='{% trans "Année" %}' name="annee" required/>
+                        </div>
+                      </div>
+                      <input class="form-control mt-3" type="text" placeholder='{% trans "Lieu de naissance" %}' name="lieu_nce" required>
+                      </div>
+                        <div class="form-group mt-5 ml-5">
+                          <div class="form-control">{{form.as_table}}</div>
+                        </div>
+                      </div> 
+                  </div>
+                <div class="form-group ml-3">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                  <span class="form-check-label" for="exampleCheck1">{% trans "J'ai lu et j'accepte la politique de confidentialité et les" %} 
+                    <a href="#" class="text-primary">{% trans "conditions générales d'utilisations" %}</a></span>
+                </div> 
+            
+              
+              
+      
+              <div class="modal-footer justify-content-center">
+                  <button type="submit" class="btn btn-warning  text-align-center text-white">{% trans "Valider" %}</button>
+              </div>
+                        
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>       
+    </ul>
+  </div>
+  {% endif %}
+  </nav>
+
+
+
+    
+
+{% block content %}
+
+ 
+
+{% endblock content %}
+
+{% block footer %}
+  {%include 'departement/footer.html' %}
+{% endblock footer %}
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   
+    <script src="{% static 'public/js/jquery.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="{% static 'public/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'public/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'public/js/bootstrap.min.js' %}"></script>
+    <script>
+
+      if ((window.location.href =="http://127.0.0.1:8000/?next=/fr/dept/deptgit/#exampleModal2") || (window.location.href =="http://127.0.0.1:8000/?next=/en/dept/deptgit/#exampleModal2")){
+        $("#exampleModal2").modal()
+      }
+
+    {% if messages %}
+          $("#exampleModal2").modal()
+      {% endif %}
+
+    </script>
+
+
+  </body>
+
+</html>

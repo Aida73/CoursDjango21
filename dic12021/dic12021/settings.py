@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from datetime import timedelta
+import dj_database_url
+from rest_framework.settings import api_settings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,11 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-$lxu^it_pu#(2#aahz0a6)!*5tv*yim$pic8gseex_os=e@(64'
+GOOGLE_RECAPTCHA_SECRET_KEY = '6LdRSRYUAAAAAOnk5yomm1dI9BmQkJWTg_wIlMJ_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['site-officiel-EPT.herokuapp.com']
 
 
 # Application definition
@@ -39,12 +43,22 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'departement',
+    'home',
+    'users',
+    'captcha',
+    'fontawesome-free',
+    'rest_framework',
+    'knox',
+    'coreapi',
+   
     
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -83,9 +97,45 @@ DATABASES = {
     }
 }
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'knox.auth.TokenAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
+}
 
-# Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
+"""
+
+Déconnecter l'utilisateur lorsqu'il ferme son navigateur
+
+"""
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+
+# SECURITY WARNING: don't run with debug turned on in production!
+if os.environ.get('ENV') == 'PRODUCTION':
+    DEBUG = False
+    # Static files settings
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+
+    # Extra places for collectstatic to find static files.
+    STATICFILES_DIRS= (
+    os.path.join(BASE_DIR, 'static'),
+    )
+    STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    #configure database
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
+
+else:
+    DEBUG = True
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -103,10 +153,11 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr'
 
 TIME_ZONE = 'UTC'
 
@@ -121,15 +172,35 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-#STATICFILES_DIRS=[BASE_DIR / 'static']
-STATICFILES_DIRS= (
-    os.path.join(BASE_DIR, 'static'),
-    )
-STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 
+LOGOUT_REDIRECT_URL = 'home'
+
+
+#STATICFILES_DIRS=[BASE_DIR / 'static']
+
+
+
+from django.utils.translation import gettext_lazy as _
+
+LANGUAGES = (
+    ('en', _('English')),
+    ('fr', _('French')),
+)
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale')
+]
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'djangoprojectas21@gmail.com'
+EMAIL_HOST_PASSWORD = 'passer2021'

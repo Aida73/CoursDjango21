@@ -1,0 +1,79 @@
+{% extends 'departement/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<style>
+    div{
+        border-radius: 3px 3px 3px 3px;
+    }
+    #mapid{
+        height:400px;
+    }
+</style>
+<div class="ml-3 mr-3">
+<div class="d-flex align-items-start text-white p-1" style="background-color: rgb(216, 127, 39);">Contact</div>
+
+<div class="p-1">
+<i class="fa fa-envelope"></i><small>{% trans "Mail" %}: <a href="#" class="text-primary">ept@ept.sn</a></small>>
+ <small>{% trans "Postale" %}: BP A10 Thies Sénégal</small>><br>
+ <i class="fa fa-phone-alt"></i><small>{% trans "Téléphone" %}: 00221 33 951 15 48</small><br>
+ <i class="fa fa-fax"></i><small>Fax:  00221 33 951 15 48</small>
+</div>
+
+<div class="d-flex align-items-start text-white p-1" style="background-color: rgb(216, 127, 39);">Accès</div>
+
+<div class="p-1">
+    <small>
+        {% blocktrans %}
+            L'Ept est située dans la région de Thiès( environ 70 Km de Dakar, Sénégal) sur un terrain de plus de 4OO hectars.
+        Son campus comporte des locaux d'enseignement pédagogiques et de recherche,d'administration,d'exploitation,
+        et d'hébergement à l'usage des étudiants et d'une partie du personnel.
+        {% endblocktrans %}
+    </small>>
+</div>
+
+<div class="d-flex align-items-start text-white p-1" style="background-color: rgb(216, 127, 39);">Localisation</div>
+<div>
+    <span>{% trans "Itinaire depuis l'aéroport Léopold Sédar Senghor" %}</span>
+</div>
+<div class="row">
+    
+    <div class="col-7">
+    <div  id="mapid"></div>
+    <script>
+    var redIcon = L.icon({
+                iconUrl: '{% static 'icon/map-marker.png' %}',
+                iconSize:     [24, 24], // size of the icon
+                iconAnchor:     [12, 24], // icon position 
+                popupAnchor:  [0, -24] // point from which the popup should open relative to the iconAnchor
+            }); 
+        var mymap = L.map('mapid').setView([14.795993, -16.964476], 13);
+        var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19,
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(mymap);
+        L.marker([14.795993, -16.964476], {icon: redIcon}).addTo(mymap).bindPopup("<table> <tr> <th>Localisation: </th><td>" + "Ecole polytechnique de Thiès" + "</td></th><td> </table>");
+
+    </script>
+    </div>
+    
+    {% comment %} Pas encore fonctionnelle {% endcomment %}
+    <div class="col-4 ml-5">
+        <span>{% trans "Trouver directement l'itinéraire depuis votre adresse jusqu'à l'Ept" %}</span>
+        <form class="form-group mt-3">
+            <div class="form-group">
+            <label>{% trans "Adresse" %}</label>
+            <input class="form-control" type="text" placeholder='{% trans "Ville/Région" %}'>
+            </div>
+            <div class="form-group">
+            <label>BP</label>
+            <input class="form-control" type="text" placeholder='{% trans "Boite postale" %}'>
+            <div class="row justify-content-center mt-3">
+            <a href="https://www.google.com/maps/dir/+Dakar/Ecole+Polytechnique+de+Thi%C3%A8s+Thi%C3%A8s+21001/@14.7597156,-17.2737084,11z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0xec1752bc3b68063:0x232257bccc8bfe09!2m2!1d-17.3338839!2d14.7333129!1m5!1m1!1s0xec1be4e9cad100d:0x2e6a43d5321f3f97!2m2!1d-16.9358604!2d14.7910052" class="btn btn-warning text-white" type="submit">{% trans "Rechercher" %}</a>
+            </div>
+            </div>
+           
+        </form>
+    </div>
+</div>
+</div>
+{% endblock content %}

@@ -15,14 +15,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path , include
-from home import views as home_views
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',home_views.accueil,name='home'),
-    path('dept/',include('departement.urls'))
+from django.conf.urls.i18n import i18n_patterns
+from django.utils.translation import gettext_lazy as _
+from rest_framework.documentation import include_docs_urls
 
+
+urlpatterns = [
+    path(_('admin/'), admin.site.urls),
+    path('',include('home.urls')),
+    path('users/',include('users.urls')),
+    path('dept/',include('departement.urls')),
+    path('api/', include('rest_framework.urls')),
+    path('api/auth/', include('knox.urls')),
+    path('api-docs',include_docs_urls(title='api-docs')),
+    path('accounts/',include('django.contrib.auth.urls'))
 
 ]
 
 
+urlpatterns += i18n_patterns (
+    path('',include('home.urls')),
+    path('dept/',include('departement.urls')),
+    path('captcha/', include('captcha.urls')),
 
+)

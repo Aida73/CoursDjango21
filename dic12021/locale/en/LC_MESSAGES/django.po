@@ -1,0 +1,519 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-15 16:43+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\dic12021\settings.py:165
+msgid "English"
+msgstr ""
+
+#: .\dic12021\settings.py:166
+msgid "French"
+msgstr ""
+
+#: .\dic12021\urls.py:24
+msgid "admin/"
+msgstr ""
+
+#: .\templates\departement\base.html:71
+msgid "Accueil"
+msgstr "Home"
+
+#: .\templates\departement\base.html:75 .\templates\departement\base.html:195
+msgid "Département"
+msgstr "Department"
+
+#: .\templates\departement\base.html:78
+msgid "Genie Aeronautique"
+msgstr "Aeronautical Engineering"
+
+#: .\templates\departement\base.html:79
+msgid "Genie civil"
+msgstr "Civil Engineering"
+
+#: .\templates\departement\base.html:80
+msgid "Genie informatique et telecommunications "
+msgstr "Computer Engineering"
+
+#: .\templates\departement\base.html:81
+msgid "Genie Electomecanique"
+msgstr "Electromechanical Engineering"
+
+#: .\templates\departement\base.html:85
+msgid "Administration"
+msgstr "Administration"
+
+#: .\templates\departement\base.html:88 .\templates\departement\footer.html:37
+msgid "Contacts"
+msgstr "Contact"
+
+#: .\templates\departement\base.html:109
+msgid "A propos"
+msgstr "About us"
+
+#: .\templates\departement\base.html:113
+msgid "Déconnexion"
+msgstr "Logout"
+
+#: .\templates\departement\base.html:118
+msgid "connexion"
+msgstr "Login"
+
+#: .\templates\departement\base.html:126
+msgid "Connexion"
+msgstr "Login"
+
+#: .\templates\departement\base.html:141
+msgid "Nom Utilisateur"
+msgstr "Username"
+
+#: .\templates\departement\base.html:142
+msgid "mot de passe"
+msgstr "password"
+
+#: .\templates\departement\base.html:145
+msgid "Se souvenir de moi"
+msgstr "Remember me"
+
+#: .\templates\departement\base.html:149
+msgid "Se connecter"
+msgstr "Submit"
+
+#: .\templates\departement\base.html:153
+msgid "Mot de passe oublié?"
+msgstr "Forgot password?"
+
+#: .\templates\departement\base.html:162
+msgid "Inscription"
+msgstr "Register"
+
+#: .\templates\departement\base.html:170
+msgid "Créer un compte utilisateur"
+msgstr "Create an user account"
+
+#: .\templates\departement\base.html:181
+msgid "Prénom et Nom"
+msgstr "First Name and Last Name"
+
+#: .\templates\departement\base.html:182 .\templates\departement\git.html:43
+#: .\templates\departement\git.html:75 .\templates\departement\git.html:105
+msgid "Prénom"
+msgstr "First name"
+
+#: .\templates\departement\base.html:183 .\templates\departement\git.html:44
+#: .\templates\departement\git.html:76 .\templates\departement\git.html:106
+msgid "Nom"
+msgstr "Last name"
+
+#: .\templates\departement\base.html:186
+msgid "Adresse mail"
+msgstr "Email adress"
+
+#: .\templates\departement\base.html:187
+msgid "etudiant@ept.sn"
+msgstr ""
+
+#: .\templates\departement\base.html:190
+msgid "Numéro carte scolaire et année scolaire"
+msgstr "School card number and school year"
+
+#: .\templates\departement\base.html:191
+msgid "numéro de carte scolaire"
+msgstr "school card number"
+
+#: .\templates\departement\base.html:192
+msgid "année scolaire"
+msgstr "school year"
+
+#: .\templates\departement\base.html:209
+#, fuzzy
+#| msgid "Classe-Niveau"
+msgid "Niveau"
+msgstr "Level"
+
+#: .\templates\departement\base.html:221
+msgid "Nom d'utilisateur et mot de passe"
+msgstr "Username and password"
+
+#: .\templates\departement\base.html:227
+msgid "Date et lieu de naissance"
+msgstr "date and place of birth"
+
+#: .\templates\departement\base.html:231
+msgid "Mois"
+msgstr "Month"
+
+#: .\templates\departement\base.html:234
+msgid "Jour"
+msgstr "Day"
+
+#: .\templates\departement\base.html:237
+msgid "Année"
+msgstr "Year"
+
+#: .\templates\departement\base.html:240 .\templates\departement\git.html:47
+#: .\templates\departement\git.html:79 .\templates\departement\git.html:109
+msgid "Lieu de naissance"
+msgstr "place of birth"
+
+#: .\templates\departement\base.html:249
+msgid "J'ai lu et j'accepte la politique de confidentialité et les"
+msgstr "I have read and accept the Privacy Policy and the"
+
+#: .\templates\departement\base.html:250
+msgid "conditions générales d'utilisations"
+msgstr "general terms of use"
+
+#: .\templates\departement\base.html:257
+msgid "Valider"
+msgstr "Submit"
+
+#: .\templates\departement\bgimage.html:7
+#: .\templates\departement\bgimage2.html:7
+#: .\templates\departement\bgimage3.html:7
+msgid "Sagesse - Devoir"
+msgstr "Wisdom - Duty"
+
+#: .\templates\departement\bgimage.html:9
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "                L'Ecole Polytechnique de Thiès, connu sous le sigle EPT, "
+#| "est une\n"
+#| "              grande école d'ingénieurs implantée au Sénégal. créée en "
+#| "1973\n"
+#| "              par Léopold Sédar Senghor, elle forme des ingénieurs dans "
+#| "les\n"
+#| "              domaines du civil, du génie électromécanique (avec une\n"
+#| "              filière aéronautique) et du génie informatique et\n"
+#| "              télécommunications. \n"
+#| "            "
+msgid ""
+"\n"
+"                 L'Ecole Polytechnique de Thiès, connu sous le sigle EPT, "
+"est une\n"
+"              grande école d'ingénieurs implantée au Sénégal. créée en 1973\n"
+"              par Léopold Sédar Senghor, elle forme des ingénieurs dans les\n"
+"              domaines du civil, du génie électromécanique (avec une\n"
+"              filière aéronautique) et du génie informatique et\n"
+"              télécommunications.\n"
+"              "
+msgstr ""
+"\n"
+" The Polytechnic School of Thiès, known as the EPT, is a \n"
+"engineering school based in Senegal. created in 1973 \n"
+" by Léopold Sédar Senghor, it trains engineers in the fields of civil, "
+"electromechanical engineering (with an \n"
+" aeronautics) and computer engineering and \n"
+"     telecommunications. \n"
+"       "
+
+#: .\templates\departement\bgimage2.html:9
+#: .\templates\departement\bgimage3.html:9
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "                L'Ecole Polytechnique de Thiès, connu sous le sigle EPT, "
+#| "est une\n"
+#| "              grande école d'ingénieurs implantée au Sénégal. créée en "
+#| "1973\n"
+#| "              par Léopold Sédar Senghor, elle forme des ingénieurs dans "
+#| "les\n"
+#| "              domaines du civil, du génie électromécanique (avec une\n"
+#| "              filière aéronautique) et du génie informatique et\n"
+#| "              télécommunications. \n"
+#| "            "
+msgid ""
+"\n"
+"              L'Ecole Polytechnique de Thiès, connu sous le sigle EPT, est "
+"une\n"
+"              grande école d'ingénieurs implantée au Sénégal. créée en 1973\n"
+"              par Léopold Sédar Senghor, elle forme des ingénieurs dans les\n"
+"              domaines du civil, du génie électromécanique (avec une\n"
+"              filière aéronautique) et du génie informatique et\n"
+"              télécommunications. \n"
+"            "
+msgstr ""
+"\n"
+" The Polytechnic School of Thiès, known as the EPT, is a \n"
+"engineering school based in Senegal. created in 1973 \n"
+" by Léopold Sédar Senghor, it trains engineers in the fields of civil, "
+"electromechanical engineering (with an \n"
+" aeronautics) and computer engineering and \n"
+"     telecommunications. \n"
+" "
+
+#: .\templates\departement\contact.html:17
+msgid "Mail"
+msgstr ""
+
+#: .\templates\departement\contact.html:18
+#: .\templates\departement\footer.html:44
+msgid "Postale"
+msgstr "Postal"
+
+#: .\templates\departement\contact.html:19
+#: .\templates\departement\footer.html:47
+msgid "Téléphone"
+msgstr "Phone"
+
+#: .\templates\departement\contact.html:27
+msgid ""
+"\n"
+"            L'Ept est située dans la région de Thiès( environ 70 Km de "
+"Dakar, Sénégal) sur un terrain de plus de 4OO hectars.\n"
+"        Son campus comporte des locaux d'enseignement pédagogiques et de "
+"recherche,d'administration,d'exploitation,\n"
+"        et d'hébergement à l'usage des étudiants et d'une partie du "
+"personnel.\n"
+"        "
+msgstr ""
+"\n"
+"The Ept is located in the region of Thiès (about 70 km from Dakar, Senegal) "
+"on a plot of more than 4OO hectars.Its campus includes teaching and research "
+"facilities, administration, operation,and accommodation for students and "
+"part of the staff.\n"
+"     "
+
+#: .\templates\departement\contact.html:37
+msgid "Itinaire depuis l'aéroport Léopold Sédar Senghor"
+msgstr "Itinerary from Léopold Sédar Senghor Airport"
+
+#: .\templates\departement\contact.html:62
+msgid "Trouver directement l'itinéraire depuis votre adresse jusqu'à l'Ept"
+msgstr "Find the route directly from your address to Ept"
+
+#: .\templates\departement\contact.html:65
+#, fuzzy
+#| msgid "Adresse mail"
+msgid "Adresse"
+msgstr "Adress"
+
+#: .\templates\departement\contact.html:66
+msgid "Ville/Région"
+msgstr "City/Region"
+
+#: .\templates\departement\contact.html:70
+#, fuzzy
+#| msgid "Postale"
+msgid "Boite postale"
+msgstr "Postal"
+
+#: .\templates\departement\contact.html:72
+msgid "Rechercher"
+msgstr "Search"
+
+#: .\templates\departement\footer.html:50
+msgid "Fax"
+msgstr "Fax"
+
+#: .\templates\departement\git.html:15
+#, fuzzy
+#| msgid "Département"
+msgid "Chef du Département "
+msgstr "Department"
+
+#: .\templates\departement\git.html:17 .\templates\departement\git.html:45
+#: .\templates\departement\git.html:77 .\templates\departement\git.html:107
+msgid "Email"
+msgstr "Email"
+
+#: .\templates\departement\git.html:19
+#, fuzzy
+#| msgid "Téléphone"
+msgid "Téléphone Secrétariat"
+msgstr "Phone"
+
+#: .\templates\departement\git.html:24
+msgid "Liste des élèves du département GIT"
+msgstr "List of GIT students"
+
+#: .\templates\departement\git.html:42 .\templates\departement\git.html:74
+#: .\templates\departement\git.html:104
+msgid "Numero Carte Scolaire"
+msgstr "School Card Number"
+
+#: .\templates\departement\git.html:46 .\templates\departement\git.html:78
+#: .\templates\departement\git.html:108
+msgid "Date de naissance"
+msgstr "Date of birth"
+
+#: .\templates\departement\git.html:62
+msgid "La liste est vide"
+msgstr "List is empty"
+
+#: .\templates\departement\propos.html:13
+msgid ""
+"L’EPT est une école d’ingénieur forte de 43 ans d’expertise dans la "
+"formation d’ingénieurs de conception de Génie Civil, de Génie "
+"Électromécanique, et en Génie Informatique et Télécommunications."
+msgstr ""
+"E.P.T is an engineering school with 43 years of expertise inTraining of "
+"Civil Engineering and Engineering Design EngineersElectromechanics, and "
+"Computer Engineering and Telecommunications."
+
+#: .\templates\departement\propos.html:19
+#, python-format
+msgid ""
+" L’EPT est résolument tournée vers la diversification des filières mais "
+"aussi des niveaux de formation. Cela entraine inéluctablement une évolution "
+"des effectifs des élèves-ingénieurs (figure ci-dessous).\n"
+"\n"
+"\n"
+"\n"
+"            On note une évolution des effectifs avec une augmentation de "
+"35%% entre 2009 et 2014. Par contre, il faudra noter que cette évolution est "
+"freinée par notre capacité d’accueil que ce soit au niveau social ou au "
+"niveau pédagogique. Cette capacité limitée nous empêche pour le moment "
+"d’ouvrir deux nouveaux départements dont les projets pédagogiques sont "
+"finalisés, le département de Génie industriel et le département de "
+"Géomatique et sciences topographiques.\n"
+"\n"
+"            L’effectif total des élèves durant l’année scolaire 2013-2014 "
+"était de 329, ainsi répartis comme suit (tableau 7) :\n"
+"\n"
+"            Tableau 8 : Répartition de l’effectif des élèves ingénieurs pour "
+"l’année 2013-2014 "
+msgstr ""
+"EPT is resolutely focused on diversifying sectors, butalso levels of "
+"training. This inevitably leads to an evolutionof the engineering student "
+"population (figure below).  \n"
+"\n"
+"\n"
+"\n"
+"   There has been a change in the number of employees, with an increase of "
+"35%% between 2009 and 2014. However, it should be noted that this evolution "
+"is hampered by our capacity to welcome people at social orpedagogical level. "
+"This limited capacity prevents us for the momentto open two new departments "
+"whose educational projects are the Department of Industrial Engineering and "
+"the Department ofGeomatics and topographic sciences. \n"
+"\n"
+"   Total number of students in the 2013-2014 school year"
+
+#: .\templates\registration\password_reset_complete.html:12
+msgid ""
+"Votre mot de passe a été redéfini. Vous pouvez maintenant vous connecter"
+msgstr "Your password has been reset. You can now log in"
+
+#: .\templates\registration\password_reset_confirm.html:13
+#: .\templates\registration\password_reset_form.html:13
+msgid "Envoyer"
+msgstr "Submit"
+
+#: .\templates\registration\password_reset_confirm.html:18
+msgid ""
+"\n"
+"        Le lien de réinitialisation du mot de passe était invalide, "
+"probablement parce qu’il a déjà été utilisé.\n"
+"        Veuillez demander une nouvelle réinitialisation du mot de passe.\n"
+"        "
+msgstr ""
+"\n"
+"   The password reset link was invalid, probably because it has already been "
+"used. \n"
+"   Please request a new password reset. \n"
+"     "
+
+#: .\templates\registration\password_reset_done.html:11
+#: .\templates\registration\password_reset_form.html:9
+#, fuzzy
+#| msgid "Mot de passe oublié?"
+msgid "Mot de passe oublié ?"
+msgstr "Forgot password?"
+
+#: .\templates\registration\password_reset_done.html:13
+msgid ""
+"\n"
+"          Nous vous avons envoyé par courriel des instructions pour définir "
+"votre mot de passe, si un compte existe avec le courriel que vous avez "
+"entré.\n"
+"          Vous devriez les recevoir sous peu.\n"
+"          "
+msgstr ""
+"\n"
+"   We have emailed you instructions to define your password, if an account "
+"exists with the email you have entered. \n"
+"   You should receive them shortly. \n"
+"    "
+
+#: .\templates\registration\password_reset_done.html:19
+msgid ""
+"\n"
+"          Si vous ne recevez pas de courriel, veuillez vous assurer d’avoir "
+"entré l’adresse avec laquelle vous vous êtes inscrit.\n"
+"          et vérifiez votre dossier spam.\n"
+"          "
+msgstr ""
+"\n"
+"   If you do not receive an email, please ensure you have entered the "
+"address you registered with. \n"
+"   and check your spam folder. \n"
+"   "
+
+#, fuzzy
+#~| msgid "Classe-Niveau"
+#~ msgid "niveau"
+#~ msgstr "Class-Level"
+
+#, fuzzy
+#~| msgid ""
+#~| "\n"
+#~| "                L'Ecole Polytechnique de Thiès, connu sous le sigle EPT, "
+#~| "est une\n"
+#~| "              grande école d'ingénieurs implantée au Sénégal. créée en "
+#~| "1973\n"
+#~| "              par Léopold Sédar Senghor, elle forme des ingénieurs dans "
+#~| "les\n"
+#~| "              domaines du civil, du génie électromécanique (avec une\n"
+#~| "              filière aéronautique) et du génie informatique et\n"
+#~| "              télécommunications. \n"
+#~| "            "
+#~ msgid ""
+#~ "\n"
+#~ "              L'Ecole Polytechnique de Thiès, connu sous le sigle EPT, "
+#~ "est une\n"
+#~ "              grande école d'ingénieurs implantée au Sénégal. créée en "
+#~ "1973\n"
+#~ "              par Léopold Sédar Senghor, elle forme des ingénieurs dans "
+#~ "les\n"
+#~ "              domaines du civil, du génie électromécanique (avec une\n"
+#~ "              filière aéronautique) et du génie informatique et\n"
+#~ "              télécommunications.\n"
+#~ "          "
+#~ msgstr ""
+#~ "\n"
+#~ " The Polytechnic School of Thiès, known as the EPT, is a \n"
+#~ "engineering school based in Senegal. created in 1973 \n"
+#~ " by Léopold Sédar Senghor, it trains engineers in the fields of civil, "
+#~ "electromechanical engineering (with an \n"
+#~ " aeronautics) and computer engineering and \n"
+#~ "     telecommunications. \n"
+#~ "      "
+
+#, fuzzy
+#~| msgid "Genie Aeronautique"
+#~ msgid "Bienvenu au Génie Aéronautique"
+#~ msgstr "welcome to Aeronautical Engineering"
+
+#~ msgid "Bienvenu au Génie Civil"
+#~ msgstr "welcome to civil engineering"
+
+#, fuzzy
+#~| msgid "Genie Electomecanique"
+#~ msgid "Bienvenu au Génie Electromécanique"
+#~ msgstr "welcome to Electromechanical Engineering"
